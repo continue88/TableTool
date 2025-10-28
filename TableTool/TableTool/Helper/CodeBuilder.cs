@@ -35,6 +35,7 @@ namespace TableTool.Helper
         {
             Register(new CSharpBuilder());
             Register(new GoBuilder());
+            Register(new LuaBuilder());
         }
 
         void Register(Builder builder)
@@ -58,7 +59,7 @@ namespace TableTool.Helper
 
             if (build_data) mainObj = BuildData(compiledType, dataSource);
             if (build_proto) proto = BuildProto(compiledType);
-            if (build_code) code = BuildCode(type);
+            if (build_code) code = BuildCode(type, mainObj);
         }
 
         public Type CompileTable(Table table, string code)
@@ -295,13 +296,13 @@ option (gogoproto.unmarshaler_all) = true;
             return comment + proto;
         }
 
-        string BuildCode(string type)
+        string BuildCode(string type, object mainObj)
         {
             if (!mBuilders.ContainsKey(type))
                 throw new Exception("Language not supported now.");
 
             var builder = mBuilders[type];
-            return builder.Build(mBuildTable);
+            return builder.Build(mBuildTable, mainObj);
         }
     }
 }

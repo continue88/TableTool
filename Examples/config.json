@@ -1,0 +1,445 @@
+
+{
+    "Tables" : {
+        "ActivityBase" : {
+            "Name" : "ActivityBase",
+            "Desc" : null,
+            "MaxField" : 30,
+            "Members"  : [
+                {
+                    "Key" : true,
+                    "Colume" : "\u6D3B\u52A8ID",
+                    "Name"   : "ID",
+                    "Desc"   : null,
+                    "Type"   : "Int32",
+                    "FieldIndex" : 1,
+                    "Seaperator" : "\u0000"
+                },
+                {
+                    "Key" : false,
+                    "Colume" : "\u6D3B\u52A8\u7C7B\u578B",
+                    "Name"   : "Type",
+                    "Desc"   : null,
+                    "Type"   : "Int32",
+                    "FieldIndex" : 2,
+                    "Seaperator" : "\u0000"
+                },
+                {
+                    "Key" : false,
+                    "Colume" : "\u6D3B\u52A8\u663E\u793A\u7C7B\u578B",
+                    "Name"   : "ActivityClass",
+                    "Desc"   : null,
+                    "Type"   : "Int32",
+                    "FieldIndex" : 3,
+                    "Seaperator" : "\u0000"
+                },
+                {
+                    "Key" : false,
+                    "Colume" : "\u6D3B\u52A8\u540D\u79F0",
+                    "Name"   : "Name",
+                    "Desc"   : null,
+                    "Type"   : "String",
+                    "FieldIndex" : 4,
+                    "Seaperator" : "\u0000"
+                },
+                {
+                    "Key" : false,
+                    "Colume" : "\u6D3B\u52A8\u63CF\u8FF0",
+                    "Name"   : "Desc",
+                    "Desc"   : null,
+                    "Type"   : "String",
+                    "FieldIndex" : 5,
+                    "Seaperator" : "\u0000"
+                },
+                {
+                    "Key" : false,
+                    "Colume" : "\u6D3B\u52A8\u5956\u52B1\u63CF\u8FF0",
+                    "Name"   : "ActivityDesc",
+                    "Desc"   : null,
+                    "Type"   : "String",
+                    "FieldIndex" : 6,
+                    "Seaperator" : "\u0000"
+                },
+                {
+                    "Key" : false,
+                    "Colume" : "\u6D3B\u52A8\u56FE\u6807",
+                    "Name"   : "Icon",
+                    "Desc"   : null,
+                    "Type"   : "String",
+                    "FieldIndex" : 7,
+                    "Seaperator" : "\u0000"
+                },
+                {
+                    "Key" : false,
+                    "Colume" : "\u8D77\u59CB\u65E5\u671F",
+                    "Name"   : "StartDate",
+                    "Desc"   : null,
+                    "Type"   : "Date",
+                    "FieldIndex" : 8,
+                    "Seaperator" : "\u0000"
+                },
+                {
+                    "Key" : false,
+                    "Colume" : "\u524D\u7AEF\u5F00\u59CB\u65F6\u95F4",
+                    "Name"   : "FrontStartDate",
+                    "Desc"   : null,
+                    "Type"   : "Date",
+                    "FieldIndex" : 9,
+                    "Seaperator" : "\u0000"
+                },
+                {
+                    "Key" : false,
+                    "Colume" : "\u7ED3\u675F\u65E5\u671F",
+                    "Name"   : "StopDate",
+                    "Desc"   : null,
+                    "Type"   : "Date",
+                    "FieldIndex" : 10,
+                    "Seaperator" : "\u0000"
+                },
+                {
+                    "Key" : false,
+                    "Colume" : "\u524D\u7AEF\u7ED3\u675F\u65F6\u95F4",
+                    "Name"   : "FrontStopDate",
+                    "Desc"   : null,
+                    "Type"   : "Date",
+                    "FieldIndex" : 11,
+                    "Seaperator" : "\u0000"
+                },
+                {
+                    "Key" : false,
+                    "Colume" : "\u65E5\u671F\u7C7B\u578B",
+                    "Name"   : "DateType",
+                    "Desc"   : null,
+                    "Type"   : "Int32",
+                    "FieldIndex" : 12,
+                    "Seaperator" : "\u0000"
+                },
+                {
+                    "Key" : false,
+                    "Colume" : "\u5F53\u65E5\u8D77\u59CB\u65F6\u95F4",
+                    "Name"   : "StartTime",
+                    "Desc"   : null,
+                    "Type"   : "Time",
+                    "FieldIndex" : 13,
+                    "Seaperator" : "\u0000"
+                },
+                {
+                    "Key" : false,
+                    "Colume" : "\u5F53\u65E5\u7ED3\u675F\u65F6\u95F4",
+                    "Name"   : "StopTime",
+                    "Desc"   : null,
+                    "Type"   : "Time",
+                    "FieldIndex" : 14,
+                    "Seaperator" : "\u0000"
+                },
+                {
+                    "Key" : false,
+                    "Colume" : "\u8D77\u6548\u661F\u671F",
+                    "Name"   : "Days",
+                    "Desc"   : null,
+                    "Type"   : "Int32",
+                    "FieldIndex" : 15,
+                    "Seaperator" : "|"
+                },
+                {
+                    "Key" : false,
+                    "Colume" : "\u65F6\u95F4\u63CF\u8FF0",
+                    "Name"   : "TimeTips",
+                    "Desc"   : null,
+                    "Type"   : "String",
+                    "FieldIndex" : 16,
+                    "Seaperator" : "\u0000"
+                },
+                {
+                    "Key" : false,
+                    "Colume" : "\u63A5\u53D7\u7B49\u7EA7\u6BB5",
+                    "Name"   : "LevelRange",
+                    "Desc"   : null,
+                    "Type"   : "Range",
+                    "FieldIndex" : 17,
+                    "Seaperator" : "\u0000"
+                },
+                {
+                    "Key" : false,
+                    "Colume" : "\u6D3B\u52A8\u5F00\u542F\u524D\u7F6E\u4EFB\u52A1ID",
+                    "Name"   : "QuestId",
+                    "Desc"   : null,
+                    "Type"   : "String",
+                    "FieldIndex" : 18,
+                    "Seaperator" : "\u0000"
+                },
+                {
+                    "Key" : false,
+                    "Colume" : "VIP\u7B49\u7EA7\u9650\u5236",
+                    "Name"   : "Vip",
+                    "Desc"   : null,
+                    "Type"   : "String",
+                    "FieldIndex" : 19,
+                    "Seaperator" : "\u0000"
+                },
+                {
+                    "Key" : false,
+                    "Colume" : "\u6BCF\u65E5\u6B21\u6570",
+                    "Name"   : "DailyTimes",
+                    "Desc"   : null,
+                    "Type"   : "String",
+                    "FieldIndex" : 20,
+                    "Seaperator" : "\u0000"
+                },
+                {
+                    "Key" : false,
+                    "Colume" : "\u603B\u5B8C\u6210\u6B21\u6570",
+                    "Name"   : "TotalCount",
+                    "Desc"   : null,
+                    "Type"   : "String",
+                    "FieldIndex" : 21,
+                    "Seaperator" : "\u0000"
+                },
+                {
+                    "Key" : false,
+                    "Colume" : "\u524D\u7F6E\u6D3B\u52A8",
+                    "Name"   : "PreActivity",
+                    "Desc"   : null,
+                    "Type"   : "String",
+                    "FieldIndex" : 22,
+                    "Seaperator" : "\u0000"
+                },
+                {
+                    "Key" : false,
+                    "Colume" : "\u526F\u672C\u5217\u8868",
+                    "Name"   : "PveLevels",
+                    "Desc"   : null,
+                    "Type"   : "String",
+                    "FieldIndex" : 23,
+                    "Seaperator" : "\u0000"
+                },
+                {
+                    "Key" : false,
+                    "Colume" : "\u529F\u80FD1",
+                    "Name"   : "Function1",
+                    "Desc"   : null,
+                    "Type"   : "String",
+                    "FieldIndex" : 24,
+                    "Seaperator" : "\u0000"
+                },
+                {
+                    "Key" : false,
+                    "Colume" : "\u6D3B\u52A8\u5956\u52B1\u663E\u793A\u56FE\u6807",
+                    "Name"   : "ActivityItem",
+                    "Desc"   : null,
+                    "Type"   : "String",
+                    "FieldIndex" : 25,
+                    "Seaperator" : "\u0000"
+                },
+                {
+                    "Key" : false,
+                    "Colume" : "\u516C\u544A",
+                    "Name"   : "Notice",
+                    "Desc"   : null,
+                    "Type"   : "String",
+                    "FieldIndex" : 26,
+                    "Seaperator" : "\u0000"
+                },
+                {
+                    "Key" : false,
+                    "Colume" : "\u95F4\u9694CD",
+                    "Name"   : "CoolDown",
+                    "Desc"   : null,
+                    "Type"   : "String",
+                    "FieldIndex" : 27,
+                    "Seaperator" : "\u0000"
+                },
+                {
+                    "Key" : false,
+                    "Colume" : "\u5956\u52B1",
+                    "Name"   : "Reward",
+                    "Desc"   : null,
+                    "Type"   : "RewardInfo",
+                    "FieldIndex" : 28,
+                    "Seaperator" : "\u0000"
+                },
+                {
+                    "Key" : false,
+                    "Colume" : "\u6761\u4EF6\u503C1",
+                    "Name"   : "Value1",
+                    "Desc"   : null,
+                    "Type"   : "Int32",
+                    "FieldIndex" : 29,
+                    "Seaperator" : "\u0000"
+                },
+                {
+                    "Key" : false,
+                    "Colume" : "\u6761\u4EF6\u503C2",
+                    "Name"   : "Value2",
+                    "Desc"   : null,
+                    "Type"   : "Int32",
+                    "FieldIndex" : 30,
+                    "Seaperator" : "\u0000"
+                }
+            ],
+            "Classes"  : [
+                {
+                    "Name" : "Date",
+                    "Seaperator" : "-",
+                    "Members"    : [
+                        {
+                            "Name" : "Year",
+                            "Desc" : null,
+                            "Type" : "Int32",
+                            "FieldIndex" : 0,
+                            "Seaperator" : "\u0000"
+                        },
+                        {
+                            "Name" : "Month",
+                            "Desc" : null,
+                            "Type" : "Int32",
+                            "FieldIndex" : 0,
+                            "Seaperator" : "\u0000"
+                        },
+                        {
+                            "Name" : "Day",
+                            "Desc" : null,
+                            "Type" : "Int32",
+                            "FieldIndex" : 0,
+                            "Seaperator" : "\u0000"
+                        }
+                    ],
+                    "Enum"       : false
+                },
+                {
+                    "Name" : "Time",
+                    "Seaperator" : ":",
+                    "Members"    : [
+                        {
+                            "Name" : "Hour",
+                            "Desc" : null,
+                            "Type" : "Int32",
+                            "FieldIndex" : 0,
+                            "Seaperator" : "\u0000"
+                        },
+                        {
+                            "Name" : "Minute",
+                            "Desc" : null,
+                            "Type" : "Int32",
+                            "FieldIndex" : 0,
+                            "Seaperator" : "\u0000"
+                        },
+                        {
+                            "Name" : "Seconds",
+                            "Desc" : null,
+                            "Type" : "Int32",
+                            "FieldIndex" : 0,
+                            "Seaperator" : "\u0000"
+                        }
+                    ],
+                    "Enum"       : false
+                },
+                {
+                    "Name" : "Range",
+                    "Seaperator" : "-",
+                    "Members"    : [
+                        {
+                            "Name" : "Start",
+                            "Desc" : null,
+                            "Type" : "Int32",
+                            "FieldIndex" : 0,
+                            "Seaperator" : "\u0000"
+                        },
+                        {
+                            "Name" : "End",
+                            "Desc" : null,
+                            "Type" : "Int32",
+                            "FieldIndex" : 0,
+                            "Seaperator" : "\u0000"
+                        }
+                    ],
+                    "Enum"       : false
+                },
+                {
+                    "Name" : "RewardInfo",
+                    "Seaperator" : ";",
+                    "Members"    : [
+                        {
+                            "Name" : "God",
+                            "Desc" : null,
+                            "Type" : "Int32",
+                            "FieldIndex" : 0,
+                            "Seaperator" : "\u0000"
+                        },
+                        {
+                            "Name" : "Gem",
+                            "Desc" : null,
+                            "Type" : "Int32",
+                            "FieldIndex" : 0,
+                            "Seaperator" : "\u0000"
+                        },
+                        {
+                            "Name" : "Reputation",
+                            "Desc" : null,
+                            "Type" : "Int32",
+                            "FieldIndex" : 0,
+                            "Seaperator" : "\u0000"
+                        },
+                        {
+                            "Name" : "Energy",
+                            "Desc" : null,
+                            "Type" : "Int32",
+                            "FieldIndex" : 0,
+                            "Seaperator" : "\u0000"
+                        },
+                        {
+                            "Name" : "Exp",
+                            "Desc" : null,
+                            "Type" : "Int32",
+                            "FieldIndex" : 0,
+                            "Seaperator" : "\u0000"
+                        },
+                        {
+                            "Name" : "Contribution",
+                            "Desc" : null,
+                            "Type" : "Int32",
+                            "FieldIndex" : 0,
+                            "Seaperator" : "\u0000"
+                        },
+                        {
+                            "Name" : "Score",
+                            "Desc" : null,
+                            "Type" : "Int32",
+                            "FieldIndex" : 0,
+                            "Seaperator" : "\u0000"
+                        },
+                        {
+                            "Name" : "Items",
+                            "Desc" : null,
+                            "Type" : "RewardItem",
+                            "FieldIndex" : 0,
+                            "Seaperator" : "|"
+                        }
+                    ],
+                    "Enum"       : false
+                },
+                {
+                    "Name" : "RewardItem",
+                    "Seaperator" : ":",
+                    "Members"    : [
+                        {
+                            "Name" : "Item",
+                            "Desc" : null,
+                            "Type" : "Int32",
+                            "FieldIndex" : 0,
+                            "Seaperator" : "\u0000"
+                        },
+                        {
+                            "Name" : "Count",
+                            "Desc" : null,
+                            "Type" : "Int32",
+                            "FieldIndex" : 0,
+                            "Seaperator" : "\u0000"
+                        }
+                    ],
+                    "Enum"       : false
+                }
+            ]
+        }
+    }
+}

@@ -16,7 +16,7 @@ namespace TableTool.Controls
     {
         Table mTable;
         CodeBuilder mCodeBuilder;
-        ListViewWrapper<Member> mMemberListView;
+        ListViewWrapper<ExcelMember> mMemberListView;
         ListViewWrapper<SubClass> mSubClassListView;
 
         public Table Table { get { return mTable; } }
@@ -26,7 +26,7 @@ namespace TableTool.Controls
             InitializeComponent();
 
             mCodeBuilder = new CodeBuilder();
-            mMemberListView = new ListViewWrapper<Member>(listViewMember);
+            mMemberListView = new ListViewWrapper<ExcelMember>(listViewMember);
             mSubClassListView = new ListViewWrapper<SubClass>(listViewSubClass);
         }
 

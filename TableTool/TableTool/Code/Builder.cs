@@ -9,7 +9,7 @@ namespace TableTool.Code
     public abstract class Builder
     {
         public abstract string Type { get; }
-        public abstract string Build(TableTool.Data.Table table);
+        public abstract string Build(Table table, object mainObj);
 
         public const string ITEMS_FIELD = "Items";
         public const string STRING_POOL_FIELD = "StringPool";

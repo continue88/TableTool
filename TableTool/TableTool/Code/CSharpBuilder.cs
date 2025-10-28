@@ -10,7 +10,7 @@ namespace TableTool.Code
     {
         public override string Type { get { return "cs"; } }
 
-        public override string Build(Table table)
+        public override string Build(Table table, object mainObj)
         {
             // header.
             var sb = new StringBuilder();
@@ -62,7 +62,7 @@ namespace TableTool.Code
             sb.AppendLine(sp + "}");
         }
 
-        static void BuildMember(StringBuilder sb, Member member)
+        static void BuildMember(StringBuilder sb, ExcelMember member)
         {
             if (string.IsNullOrEmpty(member.Type) || string.IsNullOrEmpty(member.Name))
                 return;

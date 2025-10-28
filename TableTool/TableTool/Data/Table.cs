@@ -13,7 +13,7 @@ namespace TableTool.Data
 
         public int MaxField;
 
-        public List<Member> Members = new List<Member>();
+        public List<ExcelMember> Members = new List<ExcelMember>();
 
         public List<SubClass> Classes = new List<SubClass>();
 
@@ -31,6 +31,11 @@ namespace TableTool.Data
 
             if (key1 == null)
                 throw new Exception("No key found in table: " + Name);
+        }
+
+        public SubClass FindSubClasss(string type)
+        {
+            return Classes.FirstOrDefault(x => x.Name == type);
         }
     }
 }

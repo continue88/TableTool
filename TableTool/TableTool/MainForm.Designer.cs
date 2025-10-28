@@ -46,24 +46,26 @@
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.listView1 = new System.Windows.Forms.ListView();
-            this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.buildCodeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buildDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buildAllClientToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.readDataClientToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.buildProtoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buildCodegoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buildDataServerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buildAllServerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.readDataServerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rebuildToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.readDataClientToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.readDataServerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.buildLUAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -232,9 +234,9 @@
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
             this.listView1.SelectedIndexChanged += new System.EventHandler(this.onTableFileSelected);
-            this.listView1.DoubleClick += new System.EventHandler(this.openToolStripMenuItem_Click);
             this.listView1.DragDrop += new System.Windows.Forms.DragEventHandler(this.onTableFileDragDrop);
             this.listView1.DragEnter += new System.Windows.Forms.DragEventHandler(this.onTableFileDragEnter);
+            this.listView1.DoubleClick += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // columnHeader1
             // 
@@ -260,10 +262,12 @@
             this.buildAllServerToolStripMenuItem,
             this.readDataServerToolStripMenuItem,
             this.toolStripSeparator5,
+            this.buildLUAToolStripMenuItem,
+            this.toolStripSeparator3,
             this.openToolStripMenuItem,
             this.rebuildToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(183, 280);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(183, 308);
             // 
             // buildCodeToolStripMenuItem
             // 
@@ -285,6 +289,13 @@
             this.buildAllClientToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
             this.buildAllClientToolStripMenuItem.Text = "Build All(Client)";
             this.buildAllClientToolStripMenuItem.Click += new System.EventHandler(this.onBuildAllClientClicked);
+            // 
+            // readDataClientToolStripMenuItem
+            // 
+            this.readDataClientToolStripMenuItem.Name = "readDataClientToolStripMenuItem";
+            this.readDataClientToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.readDataClientToolStripMenuItem.Text = "Read Data(Client)";
+            this.readDataClientToolStripMenuItem.Click += new System.EventHandler(this.readDataClientToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
@@ -319,6 +330,13 @@
             this.buildAllServerToolStripMenuItem.Text = "Build All(Server)";
             this.buildAllServerToolStripMenuItem.Click += new System.EventHandler(this.onBuildAllServerClicked);
             // 
+            // readDataServerToolStripMenuItem
+            // 
+            this.readDataServerToolStripMenuItem.Name = "readDataServerToolStripMenuItem";
+            this.readDataServerToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.readDataServerToolStripMenuItem.Text = "Read Data(Server)";
+            this.readDataServerToolStripMenuItem.Click += new System.EventHandler(this.readDataServerToolStripMenuItem_Click);
+            // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
@@ -347,19 +365,17 @@
             // 
             this.saveFileDialog1.Filter = "All file|*.*";
             // 
-            // readDataClientToolStripMenuItem
+            // buildLUAToolStripMenuItem
             // 
-            this.readDataClientToolStripMenuItem.Name = "readDataClientToolStripMenuItem";
-            this.readDataClientToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
-            this.readDataClientToolStripMenuItem.Text = "Read Data(Client)";
-            this.readDataClientToolStripMenuItem.Click += new System.EventHandler(this.readDataClientToolStripMenuItem_Click);
+            this.buildLUAToolStripMenuItem.Name = "buildLUAToolStripMenuItem";
+            this.buildLUAToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.buildLUAToolStripMenuItem.Text = "Build LUA";
+            this.buildLUAToolStripMenuItem.Click += new System.EventHandler(this.buildLUAToolStripMenuItem_Click);
             // 
-            // readDataServerToolStripMenuItem
+            // toolStripSeparator3
             // 
-            this.readDataServerToolStripMenuItem.Name = "readDataServerToolStripMenuItem";
-            this.readDataServerToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
-            this.readDataServerToolStripMenuItem.Text = "Read Data(Server)";
-            this.readDataServerToolStripMenuItem.Click += new System.EventHandler(this.readDataServerToolStripMenuItem_Click);
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(179, 6);
             // 
             // MainForm
             // 
@@ -425,6 +441,8 @@
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ToolStripMenuItem readDataClientToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem readDataServerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem buildLUAToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
     }
 }
 

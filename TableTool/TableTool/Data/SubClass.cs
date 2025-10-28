@@ -12,13 +12,15 @@ namespace TableTool.Data
 
         public char Seaperator { get; set; }
 
-        public List<SubMember> Members { get; set; }
+        public List<Member> Members { get; set; }
+
+        public bool Enum => false;
 
         public SubClass()
         {
             mName = "ClassName1";
             Seaperator = '|';
-            Members = new List<SubMember>();
+            Members = new List<Member>();
         }
 
         public override string ToString()

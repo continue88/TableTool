@@ -76,6 +76,7 @@
     <Compile Include="Code\CSharpBuilder.cs" />
     <Compile Include="Code\GoBuilder.cs" />
     <Compile Include="Code\GoTemplate.cs" />
+    <Compile Include="Code\LuaBuilder.cs" />
     <Compile Include="CommandProcess.cs" />
     <Compile Include="Controls\TablePanel.cs">
       <SubType>UserControl</SubType>
@@ -83,10 +84,10 @@
     <Compile Include="Controls\TablePanel.Designer.cs">
       <DependentUpon>TablePanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Data\ExcelMember.cs" />
     <Compile Include="Data\Member.cs" />
     <Compile Include="Data\MemberType.cs" />
     <Compile Include="Data\SubClass.cs" />
-    <Compile Include="Data\SubMember.cs" />
     <Compile Include="Data\Table.cs" />
     <Compile Include="Data\TableStore.cs" />
     <Compile Include="Helper\CodeBuilder.cs" />

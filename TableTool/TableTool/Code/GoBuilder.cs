@@ -10,7 +10,7 @@ namespace TableTool.Code
     {
         public override string Type { get { return "go"; } }
 
-        public override string Build(Table table)
+        public override string Build(Table table, object mainObj)
         {
             Member key1, key2;
             table.GetKeys(out key1, out key2);

@@ -153,7 +153,7 @@ namespace TableTool
                 var nameText = (excelCeils[2, columIndex + 1] != null) ? 
                     excelCeils[2, columIndex + 1].ToString() : "";
 
-                var newMember = new Member(text);
+                var newMember = new ExcelMember(text);
                 if (oldTable != null)
                 {
                     var oldMember = oldTable.Members.Find(x => { return x.Colume == text; });
@@ -503,6 +503,14 @@ namespace TableTool
                 return Path.Combine(Settings.Default.ServerDataPath, key + ".bytes");
             }).ToArray();
             ReadTableFiles(files);
+        }
+
+        private void buildLUAToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (saveFileDialog1.ShowDialog() != DialogResult.OK)
+                return;
+            var savePath = Path.GetDirectoryName(saveFileDialog1.FileName);
+            BuildSelected("lua", savePath, true, false, true, false);
         }
 
         #endregion

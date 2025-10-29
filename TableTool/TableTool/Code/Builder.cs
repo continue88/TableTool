@@ -11,7 +11,6 @@ namespace TableTool.Code
         public abstract string Type { get; }
         public abstract string Build(Table table, object mainObj);
 
-        public const string ITEMS_FIELD = "Items";
         public const string STRING_POOL_FIELD = "StringPool";
 
         // build for editor...
@@ -43,7 +42,7 @@ namespace TableTool.Code
             sb.AppendLine("public class " + table.Name + "Array");
             sb.AppendLine("{");
             sb.AppendLine("    [ProtoBuf.ProtoMember(1)]");
-            sb.AppendFormat("    public {0}[] {1};", table.Name, ITEMS_FIELD).AppendLine();
+            sb.AppendFormat("    public {0}[] {1};", table.Name, Constants.ItemsField).AppendLine();
             sb.AppendFormat("    public static Int64 Key({0} item) {{ return {1}; }}", table.Name, keystr).AppendLine();
             sb.AppendFormat("    public void Sort() {{ Array.Sort(Items, {0}); }}", sortFunc).AppendLine();
             sb.AppendLine("}");

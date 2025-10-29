@@ -32,6 +32,8 @@ namespace TableTool
         {
             Instance = this;
 
+            UserConfig.Load();
+
             InitializeComponent();
 
             mTablePanel = new TablePanel();
@@ -57,10 +59,10 @@ namespace TableTool
 
         private void LoadConfigFile()
         {
-            if (string.IsNullOrEmpty(Settings.Default.DataPath))
+            if (string.IsNullOrEmpty(UserConfig.Instance.WorkPath))
                 return;
 
-            string configText = File.ReadAllText(Settings.Default.DataPath);
+            string configText = File.ReadAllText(UserConfig.Instance.WorkPath);
             mTableStore = LitJson.JsonMapper.ToObject<TableStore>(configText, false);
             mTableStore.FixFieldIndex();
 
@@ -80,7 +82,7 @@ namespace TableTool
 
         private void RefreshTables()
         {
-            var path = Path.GetDirectoryName(Settings.Default.DataPath);
+            var path = Path.GetDirectoryName(UserConfig.Instance.WorkPath);
             var pathInfo = new DirectoryInfo(path);
 
             listView1.Items.Clear();
@@ -297,22 +299,22 @@ namespace TableTool
             if (openFileDialog1.ShowDialog() != DialogResult.OK)
                 return;
 
-            Settings.Default.DataPath = openFileDialog1.FileName;
-            Settings.Default.Save();
+            UserConfig.Instance.WorkPath = openFileDialog1.FileName;
+            UserConfig.Save();
 
             LoadConfigFile();
         }
 
         private void onSaveClicked(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(Settings.Default.DataPath))
+            if (string.IsNullOrEmpty(UserConfig.Instance.WorkPath))
             {
                 if (saveFileDialog1.ShowDialog() != DialogResult.OK)
                     return;
-                Settings.Default.DataPath = saveFileDialog1.FileName;
+                UserConfig.Instance.WorkPath = saveFileDialog1.FileName;
             }
 
-            using (StreamWriter streamWriter = new StreamWriter(Settings.Default.DataPath))
+            using (StreamWriter streamWriter = new StreamWriter(UserConfig.Instance.WorkPath))
             {
                 var writer = new LitJson.JsonWriter();
                 writer.PrettyPrint = true;
@@ -321,7 +323,7 @@ namespace TableTool
                 streamWriter.Write(config);
             }
 
-            Settings.Default.Save();
+            UserConfig.Save();
 
             mDirty = false;
         }
@@ -359,57 +361,57 @@ namespace TableTool
 
         private void onBuildDataClicked(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(Settings.Default.ClientDataPath))
+            if (string.IsNullOrEmpty(UserConfig.Instance.ClientDataPath))
             {
                 if (saveFileDialog1.ShowDialog() != DialogResult.OK)
                     return;
-                Settings.Default.ClientDataPath = Path.GetDirectoryName(saveFileDialog1.FileName);
+                UserConfig.Instance.ClientDataPath = Path.GetDirectoryName(saveFileDialog1.FileName);
             }
-            BuildSelected("cs", Settings.Default.ClientDataPath, true, false, false, true);
+            BuildSelected("cs", UserConfig.Instance.ClientDataPath, true, false, false, true);
         }
 
         private void onBuildDataServerClicked(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(Settings.Default.ServerDataPath))
+            if (string.IsNullOrEmpty(UserConfig.Instance.ServerDataPath))
             {
                 if (saveFileDialog1.ShowDialog() != DialogResult.OK)
                     return;
-                Settings.Default.ServerDataPath = Path.GetDirectoryName(saveFileDialog1.FileName);
+                UserConfig.Instance.ServerDataPath = Path.GetDirectoryName(saveFileDialog1.FileName);
             }
-            BuildSelected("go", Settings.Default.ServerDataPath, true, false, false, false);
+            BuildSelected("go", UserConfig.Instance.ServerDataPath, true, false, false, false);
         }
 
         private void onBuildProtoClicked(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(Settings.Default.ServerProtoPath))
+            if (string.IsNullOrEmpty(UserConfig.Instance.ServerProtoPath))
             {
                 if (saveFileDialog1.ShowDialog() != DialogResult.OK)
                     return;
-                Settings.Default.ServerProtoPath = Path.GetDirectoryName(saveFileDialog1.FileName);
+                UserConfig.Instance.ServerProtoPath = Path.GetDirectoryName(saveFileDialog1.FileName);
             }
-            BuildSelected("go", Settings.Default.ServerProtoPath, false, true, false, false);
+            BuildSelected("go", UserConfig.Instance.ServerProtoPath, false, true, false, false);
         }
 
         private void onBuildCodeCSharp(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(Settings.Default.ClientCodePath))
+            if (string.IsNullOrEmpty(UserConfig.Instance.ClientCodePath))
             {
                 if (saveFileDialog1.ShowDialog() != DialogResult.OK)
                     return;
-                Settings.Default.ClientCodePath = Path.GetDirectoryName(saveFileDialog1.FileName);
+                UserConfig.Instance.ClientCodePath = Path.GetDirectoryName(saveFileDialog1.FileName);
             }
-            BuildSelected("cs", Settings.Default.ClientCodePath, false, false, true, false);
+            BuildSelected("cs", UserConfig.Instance.ClientCodePath, false, false, true, false);
         }
 
         private void onBuildCodeGo(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(Settings.Default.ServerCodePath))
+            if (string.IsNullOrEmpty(UserConfig.Instance.ServerCodePath))
             {
                 if (saveFileDialog1.ShowDialog() != DialogResult.OK)
                     return;
-                Settings.Default.ServerCodePath = Path.GetDirectoryName(saveFileDialog1.FileName);
+                UserConfig.Instance.ServerCodePath = Path.GetDirectoryName(saveFileDialog1.FileName);
             }
-            BuildSelected("go", Settings.Default.ServerCodePath, false, false, true, false);
+            BuildSelected("go", UserConfig.Instance.ServerCodePath, false, false, true, false);
         }
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
@@ -445,9 +447,9 @@ namespace TableTool
 
         private void onSettingsClicked(object sender, EventArgs e)
         {
-            var dlg = new InputValueDlg("Settings", Settings.Default);
+            var dlg = new InputValueDlg("Settings", UserConfig.Instance);
             if (dlg.ShowDialog() == DialogResult.OK)
-                Settings.Default.Save();
+                UserConfig.Save();
         }
 
         private void toolStripButton4_Click(object sender, EventArgs e)
@@ -489,7 +491,7 @@ namespace TableTool
             {
                 var fullPath = item.Tag.ToString();
                 var key = Path.GetFileNameWithoutExtension(fullPath);
-                return Path.Combine(Settings.Default.ClientDataPath, key + ".bytes");
+                return Path.Combine(UserConfig.Instance.ClientDataPath, key + ".bytes");
             }).ToArray();
             ReadTableFiles(files);
         }
@@ -500,7 +502,7 @@ namespace TableTool
             {
                 var fullPath = item.Tag.ToString();
                 var key = Path.GetFileNameWithoutExtension(fullPath);
-                return Path.Combine(Settings.Default.ServerDataPath, key + ".bytes");
+                return Path.Combine(UserConfig.Instance.ServerDataPath, key + ".bytes");
             }).ToArray();
             ReadTableFiles(files);
         }
@@ -511,6 +513,20 @@ namespace TableTool
                 return;
             var savePath = Path.GetDirectoryName(saveFileDialog1.FileName);
             BuildSelected("lua", savePath, true, false, true, false);
+        }
+
+        private void userSettingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var dlg = new InputValueDlg("User Settings", UserConfig.Instance);
+            if (dlg.ShowDialog() == DialogResult.OK)
+                UserConfig.Save();
+        }
+
+        private void projectSettingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var dlg = new InputValueDlg("Project settings", mTableStore);
+            if (dlg.ShowDialog() == DialogResult.OK)
+                UserConfig.Save();
         }
 
         #endregion

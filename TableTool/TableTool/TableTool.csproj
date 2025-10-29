@@ -78,6 +78,7 @@
     <Compile Include="Code\GoTemplate.cs" />
     <Compile Include="Code\LuaBuilder.cs" />
     <Compile Include="CommandProcess.cs" />
+    <Compile Include="Constants.cs" />
     <Compile Include="Controls\TablePanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -90,6 +91,7 @@
     <Compile Include="Data\SubClass.cs" />
     <Compile Include="Data\Table.cs" />
     <Compile Include="Data\TableStore.cs" />
+    <Compile Include="Data\UserConfig.cs" />
     <Compile Include="Helper\CodeBuilder.cs" />
     <Compile Include="Helper\MemberTypeConverter.cs" />
     <Compile Include="MainForm.cs">

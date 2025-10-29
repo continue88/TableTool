@@ -252,7 +252,7 @@ namespace LitJson
 
             IList<PropertyMetadata> props = new List<PropertyMetadata> ();
 
-            foreach (PropertyInfo p_info in type.GetProperties ()) {
+            foreach (PropertyInfo p_info in type.GetProperties (BindingFlags.Public | BindingFlags.Instance)) {
                 if (p_info.Name == "Item")
                     continue;
 
@@ -262,7 +262,7 @@ namespace LitJson
                 props.Add (p_data);
             }
 
-            foreach (FieldInfo f_info in type.GetFields ()) {
+            foreach (FieldInfo f_info in type.GetFields (BindingFlags.Public | BindingFlags.Instance)) {
                 PropertyMetadata p_data = new PropertyMetadata ();
                 p_data.Info = f_info;
                 p_data.IsField = true;

@@ -121,7 +121,7 @@ namespace TableTool.Helper
             }
 
             // create the array object.
-            var itemsInfo = mainType.GetField("Items");
+            var itemsInfo = mainType.GetField(Constants.ItemsField);
             var arrayObject = Activator.CreateInstance(itemsInfo.FieldType, itemsCount) as Array;
             itemsInfo.SetValue(mainObject, arrayObject);
 

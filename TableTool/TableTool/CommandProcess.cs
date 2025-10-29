@@ -69,7 +69,7 @@ namespace TableTool
             var codeBuilder = new CodeBuilder();
             codeBuilder.Build("cs", table, true, false, false, name =>
                 {
-                    return ExcelHelper.ReadExcel(excelFile);
+                    return ExcelHelper.ReadExcel(excelFile, name);
                 },
                 out code,
                 out proto, 

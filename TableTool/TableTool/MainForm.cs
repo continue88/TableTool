@@ -144,7 +144,7 @@ namespace TableTool
                 tableInfo.Classes = oldTable.Classes;
             }
 
-            var excelCeils = ExcelHelper.ReadExcel(fileName);
+            var excelCeils = ExcelHelper.ReadExcel(fileName, name);
             for (var columIndex = 0; columIndex < excelCeils.GetLength(1); columIndex++)
             {
                 var cell = excelCeils[1, columIndex + 1];
@@ -181,7 +181,7 @@ namespace TableTool
                 string fullPath = lvItem.Tag.ToString();
                 string key = Path.GetFileNameWithoutExtension(fullPath);
                 if (key == find)
-                    return ExcelHelper.ReadExcel(fullPath);
+                    return ExcelHelper.ReadExcel(fullPath, key);
             }
             return null;
         }

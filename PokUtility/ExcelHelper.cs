@@ -2,15 +2,21 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using ExcelInterop = Microsoft.Office.Interop.Excel;
 using System.Runtime.InteropServices;
 using System.IO;
+using OfficeOpenXml;
+using Microsoft.Office.Interop.Excel;
 
 namespace PokUtility
 {
     public static class ExcelHelper
     {
         public const int LetterCount = 26;
+
+        static ExcelHelper()
+        {
+            ExcelPackage.License.SetNonCommercialPersonal("Luke");
+        }
 
         public static string GetColumeLetter(int columnsCount)
         {
@@ -27,11 +33,11 @@ namespace PokUtility
 
         static object[,] ReadExcelEx(string fileName)
         {
-            var application = new ExcelInterop.ApplicationClass();
+            var application = new ApplicationClass();
             var missing = System.Reflection.Missing.Value;
             var workbook = application.Application.Workbooks.Open(fileName, missing, true, missing, missing, missing,
                 missing, missing, missing, true, missing, missing, missing, missing, missing);
-            var worksheet = (ExcelInterop.Worksheet)workbook.Worksheets.get_Item(1);
+            var worksheet = (Worksheet)workbook.Worksheets.get_Item(1);
 
             var rowsCount = worksheet.UsedRange.Cells.Rows.Count;
             var columnsCount = worksheet.UsedRange.Cells.Columns.Count;
@@ -49,14 +55,15 @@ namespace PokUtility
             return ret;
         }
 
-        public static object[,] ReadExcel(string fileName)
+        public static object[,] ReadExcel(string fileName, string sheetName)
         {
             try
             {
                 var excelFile = new FileInfo(fileName);
-                using (var package = new OfficeOpenXml.ExcelPackage(excelFile))
+                using (var package = new ExcelPackage(excelFile))
                 {
-                    var workSheet = package.Workbook.Worksheets[1];
+                    var workSheet = package.Workbook.Worksheets[sheetName];
+
                     var cells = workSheet.Cells;
                     var ret = Array.CreateInstance(typeof(object), new int[] { workSheet.Dimension.Rows, workSheet.Dimension.Columns }, new int[] { 1, 1 }) as object[,];
                     for (var i = 1; i <= workSheet.Dimension.Rows; i++)
@@ -77,11 +84,11 @@ namespace PokUtility
         public static void WriteExcelEx(string fileName, object[,] data)
         {
             var missing = System.Reflection.Missing.Value;
-            var application = new ExcelInterop.ApplicationClass();
+            var application = new ApplicationClass();
             try
             {
                 var workbook = application.Workbooks.Add(missing);
-                var worksheet = workbook.ActiveSheet as ExcelInterop.Worksheet;
+                var worksheet = workbook.ActiveSheet as Worksheet;
 
                 var rowsCount = data.GetLength(0);
                 var columnsCount = data.GetLength(1);
@@ -91,11 +98,11 @@ namespace PokUtility
                 range.Value2 = data;
 
                 var format = fileName.EndsWith("xlsx") ?
-                    ExcelInterop.XlFileFormat.xlOpenXMLWorkbook :
-                    ExcelInterop.XlFileFormat.xlWorkbookNormal;
+                    XlFileFormat.xlOpenXMLWorkbook :
+                    XlFileFormat.xlWorkbookNormal;
 
                 workbook.SaveAs(fileName, format, missing, missing, missing, missing,
-                    ExcelInterop.XlSaveAsAccessMode.xlExclusive, missing, missing, missing, missing, missing);
+                    XlSaveAsAccessMode.xlExclusive, missing, missing, missing, missing, missing);
                 workbook.Close(true, missing, missing);
                 application.Quit();
 
@@ -117,7 +124,7 @@ namespace PokUtility
             try
             {
                 var excelFile = new FileInfo(fileName);
-                using (var package = new OfficeOpenXml.ExcelPackage(excelFile))
+                using (var package = new ExcelPackage(excelFile))
                 {
                     var workSheet = package.Workbook.Worksheets.Add("Sheet1");
                     var cells = workSheet.Cells;

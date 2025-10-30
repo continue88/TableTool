@@ -266,7 +266,13 @@ namespace TableTool.Helper
                     return targetObj;
                 }
             }
-            
+
+            if (targetType == typeof(bool))
+            {
+                if (strValue == "√" || strValue == "1" || strValue == "True") return true;
+                if (strValue == "×" || strValue == "0" || strValue == "False") return false;
+            }
+
             return Convert.ChangeType(strValue, targetType);
         }
 
